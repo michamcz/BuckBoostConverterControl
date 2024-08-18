@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ESP32_Buck_Boost_Converter</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="mainLeft">
+        <h1>Buck-Boost Converter</h1>
+        <h2 class="alignFlexStart">Actual state:</h2>
+        <div class="rowContainer">
+          <p class="buckBoostState" id="buckState">BUCK: OFF</p>
+          <p class="buckBoostState" id="boostState">BOOST: OFF</p>
+        </div>
+        <div class="rowContainer">
+          <p id="actualCurrentVal">I = ---</p>
+          <p id="DCurrentVal">D = ---</p>
+        </div>
+        <div class="rowContainer">
+          <p id="currentLimitP">Current Limiter</p>
+          <button
+            id="resetButton"
+            class="resetButton"
+            disabled
+            onclick="resetButton()"
+          >
+            RESET
+          </button>
+        </div>
+        <h2 class="alignFlexStart">Switches state:</h2>
+        <div class="rowContainer">
+          <p id="Q1State">Q1 = ---</p>
+          <p id="Q3State">Q3 = ---</p>
+        </div>
+        <div class="rowContainer">
+          <p id="Q2State">Q2 = ---</p>
+          <p id="Q4State">Q4 = ---</p>
+        </div>
+        <h2 class="alignFlexStart">Schema:</h2>
+        <img src="./img/schemat.png" />
+      </div>
+      <div class="mainRight">
+        <h2 class="alignFlexStart">Control method:</h2>
+        <div class="rowContainer">
+          <button
+            id="pwmModeButton"
+            class="modeButton modeButtonActive"
+            onclick="DCycleButton()"
+          >
+            PWM duty cycle
+          </button>
+          <button
+            id="currentModeButton"
+            class="modeButton"
+            onclick="PIDModeButton()"
+          >
+            current PID
+          </button>
+        </div>
+
+        <h2 class="alignFlexStart">Set parameters:</h2>
+        <div class="rowContainer">
+          <div id="dValP">
+            <p>D = <output id="DVal"></output>%</p>
+          </div>
+          <input
+            type="range"
+            class="slider"
+            id="inputD"
+            name="inputD"
+            min="1"
+            max="150"
+            step="1"
+          />
+          <button id="applyButton" class="configButton" onclick="applyButton()">
+            Apply
+          </button>
+        </div>
+        <div class="setParametersDiv">
+          <div class="rowContainerSet">
+            <p>Given Current I, A:</p>
+            <input id="givenCurrent" type="number" value="10" disabled />
+          </div>
+          <div class="rowContainerSet">
+            <p>Ts:</p>
+            <input
+              id="givenTs"
+              type="number"
+              value="0.00005"
+              step="0.00001"
+              disabled
+            />
+          </div>
+          <div class="rowContainerSet">
+            <p>Tr:</p>
+            <input
+              id="givenTr"
+              type="number"
+              value="0.015"
+              step="0.001"
+              disabled
+            />
+          </div>
+          <div class="rowContainerSet">
+            <p>Kp:</p>
+            <input
+              id="givenKp"
+              type="number"
+              value="0.02"
+              step="0.005"
+              disabled
+            />
+          </div>
+          <div class="rowContainerSet">
+            <p>Dead Time, us:</p>
+            <input id="givenDeadTime" type="number" value="1" />
+          </div>
+          <div class="rowContainerSet">
+            <p>Current Limit, A:</p>
+            <input id="givenCurrentLimit" type="number" value="3" />
+          </div>
+        </div>
+        <div class="rowContainer">
+          <button
+            id="startButton"
+            class="startStopButton"
+            onclick="startButton()"
+          >
+            Start
+          </button>
+          <button
+            id="stopButton"
+            class="startStopButton"
+            onclick="stopButton()"
+            disabled
+          >
+            Stop
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

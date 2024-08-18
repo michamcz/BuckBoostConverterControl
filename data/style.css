@@ -1,0 +1,250 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  background-color: #333338;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+}
+
+.mainContainer {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: row;
+  background-color: rgb(156, 179, 202);
+  padding: 20px;
+  border-radius: 10px;
+  flex: 0.6;
+}
+
+.mainLeft {
+  display: flex;
+  background-color: rgb(103, 117, 132);
+  flex-direction: column;
+  justify-content: center;
+  flex: 0.5;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.mainRight {
+  display: flex;
+  background-color: rgb(103, 117, 132);
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+  flex: 0.5;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+h1,
+h2,
+p {
+  padding: 1.8px;
+  margin: 0px;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1em;
+}
+
+p {
+  font-size: 0.8em;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.rowContainerSet {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 2px black;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  align-self: stretch;
+}
+
+.alignFlexStart {
+  align-self: flex-start;
+}
+
+#dValP {
+  padding: 5px;
+  text-align: center;
+  border: solid 2px black;
+  flex: 0.5;
+  border-radius: 10px;
+}
+
+.rowContainer > p {
+  border: solid 2px black;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  flex: 0.4;
+  text-align: center;
+}
+
+.rowContainerSet p {
+  text-align: center;
+}
+
+.setParametersDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.buckBoostState {
+  background-color: lightcoral;
+}
+
+.buckBoostStateActive {
+  background-color: lightgreen;
+}
+
+.configButton {
+  font-size: 0.8em;
+  border: solid 2px black;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: rgb(190, 216, 243);
+  cursor: pointer;
+}
+
+.startStopButton,
+.modeButton {
+  font-size: 0.8em;
+  border: solid 2px black;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: rgb(190, 216, 243);
+  cursor: pointer;
+  flex: 0.5;
+}
+
+.resetButton {
+  font-size: 0.8em;
+  border: solid 2px black;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: rgb(190, 216, 243);
+  cursor: pointer;
+  flex: 0.4;
+  text-align: center;
+}
+
+.resetButtonBlink {
+  background-color: rgb(255, 0, 0);
+}
+
+.currentLimitEnable {
+  background-color: lightcoral;
+}
+
+.startStopButton:disabled,
+#sendConfigButton:disabled,
+.modeButton:disabled,
+#resetButton:disabled {
+  cursor: auto;
+  border-color: gray;
+  background-color: rgb(190, 216, 243);
+}
+
+.modeButtonActive {
+  background-color: lightgreen;
+}
+
+.startStopButton:hover:enabled,
+.modeButton:hover:enabled,
+#applyButton:hover:enabled,
+#sendConfigButton:hover:enabled,
+#resetButton:hover:enabled {
+  background-color: rgb(110, 190, 193);
+}
+
+input[type="number"] {
+  background-color: rgb(190, 216, 243);
+  border-radius: 8px;
+  border: 0px;
+  padding: 3px;
+  width: 20%;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40%;
+  height: 10px;
+  margin: 10px 0px 10px 0px;
+  border-radius: 3px;
+  background: rgb(190, 216, 243);
+  outline: none;
+}
+
+.slider:disabled {
+  background-color: lightgrey;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 25px;
+  border: 2px black solid;
+  border-radius: 20%;
+  background: rgb(110, 190, 193);
+  cursor: pointer;
+}
+
+.slider:disabled::-webkit-slider-thumb {
+  background: lightgray;
+  border: 2px rgb(92, 92, 92) solid;
+  cursor: auto;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 25px;
+  border: 2px black solid;
+  border-radius: 20%;
+  background: rgb(110, 190, 193);
+  cursor: pointer;
+}
+
+.slider:disabled::-moz-range-thumb {
+  background: lightgray;
+  border: 2px rgb(92, 92, 92) solid;
+  cursor: auto;
+}
